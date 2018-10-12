@@ -1,2 +1,2 @@
-# Pickle-Rick
-Directory for Project: CSS to Go
+# CSS to Go
+A project by John Kusching
