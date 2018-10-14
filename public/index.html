@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" ng-app="Css2Go_App">
   <head>
     <meta charset="utf-8">
     <title>Css2Go</title>
     <!-- angular cdn -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js" charset="utf-8"></script>
     <!-- project js ass file -->
-    <!-- <script src="/js/app.js" charset="utf-8"></script> -->
+    <!-- hiding api key -->
+    <!-- <script src="config.js" type='text/javascript' ></script> -->
+    <script src="/js/app.js" charset="utf-8"></script>
     <!-- google fonts -->
     <!-- <link href="https://fonts.googleapis.com/css?family=Merienda|Raleway:400,500,600" rel="stylesheet"> -->
     <!-- font awesome -->
@@ -14,10 +16,15 @@
     <!-- project style sheet for home page -->
     <link rel="stylesheet" href="css/main.css">
   </head>
-  <body>
+  <body ng-controller="MainController as ctrl">
     <div class="container">
-
-      <h1>CSS to Go</h1>
+      <!-- include nav bar partial -->
+      <nav ng-include="'partials/nav.html'"></nav>
+      <!-- header div   -->
+      <div class="content">
+        <div ng-include="ctrl.includePath"></div>
+      </div>
+      <footer ng-include="'partials/footer.html'"></footer>
     </div>
   </body>
 </html>
