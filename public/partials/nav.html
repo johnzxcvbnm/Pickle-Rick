@@ -1,4 +1,12 @@
-<h5 ng-click="ctrl.changeInclude('home')">Css2Go</h5>
+<!-- Replace with image icon later -->
+<h2 ng-click="ctrl.changeInclude('home')">Css2Go</h2>
+<!-- About the website -->
 <h5 ng-click="ctrl.changeInclude('about')">About</h5>
-<h5 ng-click="ctrl.changeInclude('register')">Register</h5>
-<h5 ng-click="ctrl.changeInclude('login')">Login</h5>
+
+<!-- For Guests -->
+<h5 ng-click="ctrl.changeInclude('register')" ng-if="!ctrl.loggedIn">Register</h5>
+<h5 ng-click="ctrl.changeInclude('login')" ng-if="!ctrl.loggedIn">Login</h5>
+
+<!-- If the user is logged In -->
+<h5 ng-click="ctrl.logOut()" ng-if="ctrl.loggedIn">User Page</h5>
+<h5 ng-click="ctrl.logOut()" ng-if="ctrl.loggedIn">Log Out</h5>

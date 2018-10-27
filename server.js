@@ -9,13 +9,28 @@ const mongoUri = process.env.MONGODB_URI || "mongodb://localhost:27017/css2go_ap
 const port = process.env.PORT || 3000;
 
 //Sessions
-//Create later
+app.use(session({
+  secret: "feedmeseymour",
+  resave: false,
+  saveUninitialized: false
+}));
 
 //Middleware
 app.use(express.json());
 app.use(express.static("public"));
 
 //Controllers
+//SITE CONTROLLER
+
+const siteController = require("./controllers/sites.js");
+app.use("/sites", siteController);
+
+const userController = require("./controllers/users.js");
+app.use("/users", userController);
+
+const sessionController = require("./controllers/sessions.js");
+app.use("/sessions", sessionController);
+
 
 
 //Listen Route
