@@ -1,31 +1,117 @@
-/* Color 1: FDF5CC
-Color 2: 23A494
-Color 3: 2B6D69
-Color 4: F08413
-Color 5: B53046 */
-/*
-Color 1: 26A459
-Color 2: 267090
-Color 3: E49135
-Color 4: E45635
- */
 
-/* div {
-  background: #26A459;
+/****** Fonts Used ******/
+/* font-family: 'Poor Story', cursive; */
+/* font-family: 'Permanent Marker', cursive; */
+
+
+/****** Color Schemes ******/
+:root {
+  --color-01: #6B8D99;
+  --color-02: #FFDC9C;
+  --color-03: #FFB95A;
+  --color-04: #C33C45;
+  --color-05: #D8E9C2;
 }
 
-h1 {
-  color: #267090;
+/****** Total Page Sections ******/
+body {
+  background: var(--color-05);
+  width: 100%;
+  font-family: 'Poor Story', sans-serif;
 }
 
-h2 {
-  color: #E49135;
+.container {
+  /* background: var(--color-02); */
+  width: 80%;
+  margin: auto;
 }
 
-h3 {
-  color: #E45635;
+/****** Nav Bar Section ******/
+nav, footer {
+  background: var(--color-04);
+  color: white;
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 10px;
+
+  margin: 20px 10px;
+  display: flex;
+  justify-content: space-between;
 }
 
-h4 {
-  color: #E45635;
-} */
+.siteTitle {
+  font-family: 'Permanent Marker', cursive;
+  letter-spacing: 5px;
+  margin: 20px 0;
+  /* font-size: 2em; */
+}
+
+nav h5 {
+  font-size: 1.5em;
+  letter-spacing: 3px;
+  margin: 20px 0;
+}
+
+/****** Footer Section ******/
+
+
+/****** Main Content Section ******/
+
+.content {
+  background: var(--color-02);
+  width: 100%;
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin: 20px 10px;
+}
+
+/****** Register & Login Section ******/
+.login h1{
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+form {
+  width: 90%;
+  margin: auto;
+  /* padding-left: 100px; */
+}
+
+.flexWrapper {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+label {
+  display: block;
+  letter-spacing: 2px;
+  font-size: 1.2em;
+  margin: 10px 0 3px 0;
+}
+
+.labelWrapper input {
+  width: 300px;
+  padding: 5px;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.submitButton, .cancelButton {
+  letter-spacing: 2px;
+  font-size: 1em;
+  margin: 20px 5px 20px;
+  border-radius: 5px;
+}
+
+.submitButton {
+  /* Color Options */
+}
+
+.cancelButton {
+  /* Color Options */
+}

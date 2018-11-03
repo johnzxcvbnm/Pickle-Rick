@@ -1,21 +1,23 @@
 <div class="login">
   <h1>Register</h1>
   <form ng-submit="ctrl.createUser()">
-    <div>
-      <label for="username">Username</label>
-      <input type="text" ng-model="ctrl.regUsername" />
+    <div class="flexWrapper">
+      <div class="labelWrapper">
+        <label for="username">Username</label>
+        <input type="text" ng-model="ctrl.regUsername" required="true"/>
+      </div>
+      <div class="labelWrapper">
+        <label for="password">Password</label>
+        <input type="password" ng-model="ctrl.regPassword" required="true"/>
+      </div>
+      <div class="labelWrapper">
+        <label for="avatar">Avatar</label>
+        <input type="text" ng-model="ctrl.regAvatar" />
+      </div>
     </div>
-    <div>
-      <label for="password">Password</label>
-      <input type="password" ng-model="ctrl.regPassword" />
-    </div>
-    <div>
-      <label for="avatar">Avatar</label>
-      <input type="text" ng-model="ctrl.regAvatar" />
-    </div>
-    <div>
-      <input type="submit" value="Create User">
-      <button ng-click="ctrl.cancelCreateUser()">Cancel</button>
+    <div class="buttonWrapper">
+      <input type="submit" value="Create User" class="submitButton">
+      <button ng-click="ctrl.cancelCreateUser()" class="cancelButton">Cancel</button>
     </div>
   </form>
 </div>

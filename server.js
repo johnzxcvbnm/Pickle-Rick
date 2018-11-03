@@ -31,7 +31,21 @@ app.use("/users", userController);
 const sessionController = require("./controllers/sessions.js");
 app.use("/sessions", sessionController);
 
-
+//Get Routes
+//Route allows the current session to be passed from the backend framework to the front end framework
+app.get("/log", (req, res) => {
+  //If the user is currently logged in, pass the current session as a json file
+  if(req.session.currentUser){
+    res.json(req.session.currentUser);
+    //If the user is not currently logged in
+    //Send a (401: "Not logged in") message
+  } else {
+    res.status(401).json({
+      status: 401,
+      message: "Not logged in"
+    });
+  }
+});
 
 //Listen Route
 app.listen(port, () => {

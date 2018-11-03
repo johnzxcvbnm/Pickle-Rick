@@ -1,1 +1,19 @@
-<h1>Login</h1>
+<div class="login">
+  <h1>Login</h1>
+  <form ng-submit="ctrl.logIn()">
+    <div class="flexWrapper">
+      <div class="labelWrapper">
+        <label for="username">Username</label>
+        <input type="text" ng-model="ctrl.regUsername" required="true"/>
+      </div>
+      <div class="labelWrapper">
+        <label for="password">Password</label>
+        <input type="password" ng-model="ctrl.regPassword" required="true"/>
+      </div>
+    </div>
+    <div class="buttonWrapper">
+      <input type="submit" value="Log In" class="submitButton">
+      <button ng-click="ctrl.cancelCreateUser()" class="cancelButton">Cancel</button>
+    </div>
+  </form>
+</div>
