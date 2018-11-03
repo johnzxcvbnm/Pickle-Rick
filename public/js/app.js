@@ -17,15 +17,20 @@ app.controller("MainController", ['$http', function($http){
 
   //Function changes which section is currently being displayed
   this.changeInclude = (path) => {
+    this.clearRegInputs();
     this.includePath = 'partials/' + path + '.html';
   }
 
   //Function clears out the input boxes and returns the user to the 'home' section
   this.cancelCreateUser = () => {
+    controller.clearRegInputs();
+    controller.changeInclude('home');
+  }
+
+  this.clearRegInputs = () => {
     controller.regUsername = "";
     controller.regPassword = "";
     controller.regAvatar = "";
-    controller.changeInclude('home');
   }
 
   //Function calls the back end to create a new user
