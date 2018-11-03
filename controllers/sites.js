@@ -29,7 +29,7 @@ router.put("/:id", (req, res) => {
 
 //DELETE Routes
 router.delete("/:id", (req, res) => {
-  Site.findByIdAndRemove( rqe.params.id, (err, deletedSite) => {
+  Site.findByIdAndRemove( req.params.id, (err, deletedSite) => {
     res.json(deletedSite);
   });
 });

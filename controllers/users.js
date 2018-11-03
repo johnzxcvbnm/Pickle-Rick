@@ -20,5 +20,19 @@ router.post("/", (req, res) => {
   });
 });
 
+//PUT Routes
+router.put("/:id", (req, res) => {
+  User.findByIdAndUpdate( req.params.id, req.body, { new: true }, (err, updatedUser) => {
+    res.json(updatedUser);
+  });
+});
+
+//DELETE Routes
+router.delete("/:id", (req, res) => {
+  User.findByIdAndRemove( req.params.id, (err, deletedUser) => {
+    res.json(deletedUser);
+  });
+});
+
 //Export the routes to the controller
 module.exports = router;

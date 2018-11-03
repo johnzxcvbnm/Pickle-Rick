@@ -2,11 +2,13 @@
 <h2 ng-click="ctrl.changeInclude('home')" class="siteTitle">Css2Go</h2>
 <!-- About the website -->
 <h5 ng-click="ctrl.changeInclude('about')">About</h5>
-
+<!-- Post List Page -->
+<h5 ng-click="ctrl.changeInclude('postList')">Practice</h5>
 <!-- For Guests -->
 <h5 ng-click="ctrl.changeInclude('register')" ng-if="!ctrl.loggedIn">Register</h5>
 <h5 ng-click="ctrl.changeInclude('login')" ng-if="!ctrl.loggedIn">Login</h5>
 
 <!-- If the user is logged In -->
-<h5 ng-click="ctrl.logOut()" ng-if="ctrl.loggedIn">User Page</h5>
+<h5 ng-click="ctrl.changeInclude('newPost')" ng-if="ctrl.isAdmin">New Post</h5>
+<h5 ng-click="ctrl.changeInclude('editUser')" ng-if="ctrl.loggedIn">User Page</h5>
 <h5 ng-click="ctrl.logOut()" ng-if="ctrl.loggedIn">Log Out</h5>
