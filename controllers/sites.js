@@ -36,3 +36,5 @@ router.delete("/:id", (req, res) => {
 
 //Export the routes to the sites controller
 module.exports = router;
+
+// https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Public-domain-symbol.svg/256px-Public-domain-symbol.svg.png

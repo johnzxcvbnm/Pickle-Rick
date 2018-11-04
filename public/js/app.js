@@ -112,4 +112,27 @@ app.controller("MainController", ['$http', function($http){
     })
   }
 
+  this.editUser = () => {
+    if(this.regAvatar === ""){
+      this.regAvatar = "https://publicdomainvectors.org/tn_img/1466989605.png";
+    }
+    $http({
+      method: "PUT",
+      url: "/users",
+      data: {
+        username: controller.regUsername,
+        password: controller.user.password,
+        avatar: controller.regAvatar,
+        admin: controller.user.admin,
+        submissions: controller.user.submissions
+      }
+    }).then(function(response){
+      console.log("User Updated");
+      // console.log(response);
+      controller.logIn();
+    }, function(){
+      console.log("Error Updating User");
+    })
+  }
+
 }])

@@ -34,5 +34,12 @@ router.delete("/:id", (req, res) => {
   });
 });
 
+//GET Routes
+router.get("/", (req, res) => {
+  User.find({}).exec( (err, foundUsers) => {
+    res.json(foundUsers);
+  });
+});
+
 //Export the routes to the controller
 module.exports = router;

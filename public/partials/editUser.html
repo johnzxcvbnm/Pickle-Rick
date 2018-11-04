@@ -1,1 +1,23 @@
-<h1>EDIT USER PAGE</h1>
+<div class="login">
+  <div>
+    <h1 class="userPageName">{{ctrl.user.username}}</h1>
+    <img src="{{ctrl.user.avatar}}" alt="{{ctrl.user.username}}" title="{{ctrl.user.username}}" class="userPageAvatar"/>
+  </div>
+  <h1>Edit User</h1>
+  <form ng-submit="ctrl.editUser()">
+    <div class="flexWrapper">
+      <div class="labelWrapper">
+        <label for="username">Username</label>
+        <input type="text" ng-model="ctrl.regUsername" required="true"/>
+      </div>
+      <div class="labelWrapper">
+        <label for="avatar">Avatar</label>
+        <input type="text" ng-model="ctrl.regAvatar" />
+      </div>
+    </div>
+    <div class="buttonWrapper">
+      <input type="submit" value="Edit User" class="submitButton">
+      <button ng-click="ctrl.cancelCreateUser()" class="cancelButton">Cancel</button>
+    </div>
+  </form>
+</div>

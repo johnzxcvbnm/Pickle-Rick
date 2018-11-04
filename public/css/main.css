@@ -119,3 +119,28 @@ label {
 .cancelButton {
   /* Color Options */
 }
+
+/****** User Page Section ******/
+.userPageName {
+  text-align: center;
+}
+
+.userPageAvatar {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  margin: auto;
+}
+
+/* New Post & Edit Post Section */
+textarea {
+  width: 100%;
+  height: 100px;
+  resize: none;
+}
+
+.flexWrapper2 {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
