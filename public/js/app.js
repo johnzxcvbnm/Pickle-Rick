@@ -17,6 +17,7 @@ app.controller("MainController", ['$http', function($http){
   //Sites information
   this.sites = [];
   this.postDescription = ""
+  this.selectedPost = {};
 
   //---------Functions---------//
 
@@ -26,6 +27,13 @@ app.controller("MainController", ['$http', function($http){
     this.postAddress = "";
     this.postImage = "";
     this.postDescription = "";
+  }
+
+  //Function clears out the input boxes
+  this.clearRegInputs = () => {
+    controller.regUsername = "";
+    controller.regPassword = "";
+    controller.regAvatar = "";
   }
 
   //Function changes which section is currently being displayed
@@ -40,13 +48,6 @@ app.controller("MainController", ['$http', function($http){
   this.cancelCreateUser = () => {
     controller.clearRegInputs();
     controller.changeInclude('home');
-  }
-
-  //Function clears out the input boxes
-  this.clearRegInputs = () => {
-    controller.regUsername = "";
-    controller.regPassword = "";
-    controller.regAvatar = "";
   }
 
   //Function calls the back end to create a new user
@@ -84,7 +85,7 @@ app.controller("MainController", ['$http', function($http){
         password: this.regPassword
       }
     }).then(function(response){
-      console.log(response);
+      // console.log(response);
       controller.loggedIn = true;
       controller.getUser();
       controller.changeInclude('home');
@@ -103,7 +104,9 @@ app.controller("MainController", ['$http', function($http){
       //Save the user onto the controller
       controller.user = response.data
       controller.isAdmin = response.data.admin;
-      console.log("Logging user in......");
+      controller.editUsername = response.data.username;
+      controller.editAvatar = response.data.avatar;
+      // console.log("Logging user in......");
       // console.log(response.data);
     }, (err) => {
       console.log("Error getting user");
@@ -116,7 +119,7 @@ app.controller("MainController", ['$http', function($http){
       method: "DELETE",
       url: "/sessions"
     }).then( (response) => {
-      console.log(response);
+      // console.log(response);
       controller.loggedIn = false;
       controller.isAdmin = false;
       controller.changeInclude('home');
@@ -126,23 +129,21 @@ app.controller("MainController", ['$http', function($http){
   }
 
   this.editUser = () => {
-    if(this.regAvatar === ""){
-      this.regAvatar = "https://publicdomainvectors.org/tn_img/1466989605.png";
+    if(this.editAvatar === ""){
+      this.editAvatar = "https://publicdomainvectors.org/tn_img/1466989605.png";
     }
+    // console.log(this.user);
     $http({
       method: "PUT",
-      url: "/users",
+      url: "/users/" + this.user._id,
       data: {
-        username: controller.regUsername,
-        password: controller.user.password,
-        avatar: controller.regAvatar,
-        admin: controller.user.admin,
-        submissions: controller.user.submissions
+        username: controller.editUsername,
+        avatar: controller.editAvatar
       }
     }).then(function(response){
-      console.log("User Updated");
+      // console.log("User Updated");
       // console.log(response);
-      controller.logIn();
+      controller.logOut();
     }, function(){
       console.log("Error Updating User");
     })
@@ -185,7 +186,7 @@ app.controller("MainController", ['$http', function($http){
         image: this.postImage
       }
     }).then( (response) => {
-      console.log("Created new post!");
+      // console.log("Created new post!");
       controller.getSites();
       controller.cancelCreatePost();
     }, (error) => {
@@ -195,8 +196,24 @@ app.controller("MainController", ['$http', function($http){
 
   //Function changes the view from the postList page to the postShow page
   this.selectPost = (selectedSite) => {
-    console.log("Selected Site!");
+    this.selectedPost = selectedSite;
+    this.changeInclude("postShow");
+    // console.log("Selected Site!");
     console.log(selectedSite);
+  }
+
+  this.deleteSite = () => {
+    console.log(this.selectedPost._id);
+    $http({
+      method: "DELETE",
+      url: "/sites/" + this.selectedPost._id
+    }).then( (response) => {
+      console.log("Post Deleted");
+      controller.getSites();
+      controller.changeInclude("postList");
+    }, (error) => {
+      console.log("Error deleting post");
+    })
   }
 
   //Initial call to load all the sites from the database

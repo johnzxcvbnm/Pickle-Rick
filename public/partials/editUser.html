@@ -4,20 +4,21 @@
     <img src="{{ctrl.user.avatar}}" alt="{{ctrl.user.username}}" title="{{ctrl.user.username}}" class="userPageAvatar"/>
   </div>
   <h1>Edit User</h1>
+  <p class="editUserText"><i>Note</i>: Editing requires logging back in</p>
   <form ng-submit="ctrl.editUser()">
     <div class="flexWrapper">
       <div class="labelWrapper">
         <label for="username">Username</label>
-        <input type="text" ng-model="ctrl.regUsername" required="true"/>
+        <input type="text" ng-model="ctrl.editUsername" required="true"/>
       </div>
       <div class="labelWrapper">
         <label for="avatar">Avatar</label>
-        <input type="text" ng-model="ctrl.regAvatar" />
+        <input type="text" ng-model="ctrl.editAvatar" />
       </div>
     </div>
     <div class="buttonWrapper">
-      <input type="submit" value="Edit User" class="submitButton">
-      <button ng-click="ctrl.cancelCreateUser()" class="cancelButton">Cancel</button>
+      <input type="submit" value="Edit User" class="colorButton">
+      <button ng-click="ctrl.cancelCreateUser()" class="colorButton">Cancel</button>
     </div>
   </form>
 </div>

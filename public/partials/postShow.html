@@ -1,0 +1,14 @@
+<div class="postShowFlex">
+  <div class="postShowLeft">
+    <img src="{{ctrl.selectedPost.image}}" alt="{{ctrl.selectedPost.title}}" title="{{ctrl.selectedPost.title}}" />
+  </div>
+  <div class="postShowRight">
+    <h1><a href="{{ctrl.selectedPost.address}}">{{ctrl.selectedPost.title}}</a></h1>
+    <p>{{ctrl.selectedPost.description}}</p>
+  </div>
+</div>
+<div class="buttonBar">
+  <!-- <button ng-click="ctrl.openSubmit()" ng-if="ctrl.loggedIn" class="colorButton">Submit</button> -->
+  <button ng-click="ctrl.editSite()" ng-if="ctrl.isAdmin" class="colorButton">Edit</button>
+  <button ng-click="ctrl.deleteSite()" ng-if="ctrl.isAdmin" class="colorButton">Delete</button>
+</div>

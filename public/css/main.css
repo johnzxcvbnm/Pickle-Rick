@@ -62,6 +62,7 @@ nav h5 {
 
 .content {
   background: var(--color-02);
+  color: var(--color-01);
   width: 100%;
   min-height: 400px;
   padding: 10px 20px;
@@ -103,6 +104,7 @@ label {
 .buttonWrapper {
   display: flex;
   justify-content: center;
+
 }
 
 .submitButton, .cancelButton {
@@ -132,6 +134,12 @@ label {
   margin: auto;
 }
 
+.editUserText {
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 1em;
+}
+
 /****** New Post & Edit Post Section ******/
 textarea {
   width: 100%;
@@ -153,17 +161,72 @@ textarea {
 }
 
 .siteListWrapper {
-  width: 300px;
-  height: 300px;
-  border: 2px solid black;
+  width: 250px;
+  height: 250px;
+  border: 2px solid var(--color-01);
   border-radius: 20px;
   margin: 20px;
   padding: 20px;
   text-align: center;
+  color: var(--color-01);
 }
 
 .siteListPreview {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   margin: auto;
+}
+
+/****** Post Show Section ******/
+.postShowFlex {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.postShowLeft, .postShowRight {
+  width: 40%;
+  margin: 10px;
+  padding: 10px;
+  /* border: 1px solid black; */
+}
+
+.postShowLeft img {
+  max-width: 300px;
+  max-height: 400px;
+  margin: auto;
+}
+
+.postShowRight {
+  letter-spacing: 3px;
+}
+
+.postShowRight a {
+  color: var(--color-01);
+}
+
+.postShowRight a:hover {
+  color: white;
+}
+
+.buttonBar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.colorButton {
+  margin: 20px 5px;
+  padding: 10px;
+  letter-spacing: 2px;
+  font-size: 1.1em;
+  border: 1px solid var(--color-01);
+  border-radius: 10px;
+  background: var(--color-03);
+  color: var(--color-01);
+}
+
+.colorButton:hover {
+  background: var(--color-01);
+  color: var(--color-03);
 }
