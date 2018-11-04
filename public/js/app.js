@@ -14,12 +14,25 @@ app.controller("MainController", ['$http', function($http){
   this.loggedIn = false;
   this.isAdmin = false;
 
+  //Sites information
+  this.sites = [];
+  this.postDescription = ""
+
   //---------Functions---------//
+
+  //Function clears the input boxes for creating a new post
+  this.clearPostInputs = () => {
+    this.postTitle = "";
+    this.postAddress = "";
+    this.postImage = "";
+    this.postDescription = "";
+  }
 
   //Function changes which section is currently being displayed
   //Function has been updated to clear out input boxes upon page change
   this.changeInclude = (path) => {
     this.clearRegInputs();
+    this.clearPostInputs();
     this.includePath = 'partials/' + path + '.html';
   }
 
@@ -134,5 +147,59 @@ app.controller("MainController", ['$http', function($http){
       console.log("Error Updating User");
     })
   }
+
+  //Function is used to load the saved sites from the backend
+  this.getSites = () => {
+    $http({
+      method: "GET",
+      url: "/sites"
+    }).then( (response) => {
+      controller.sites = response.data;
+    }, (error) => {
+      console.log("Error loading Sites");
+    })
+  }
+
+  //Function is used to cancel creating a new post
+  this.cancelCreatePost = () => {
+    // console.log("You canceled the post");
+    this.clearPostInputs();
+    this.changeInclude("postList");
+  }
+
+  //Function is used to create a new post
+  this.createPost = () => {
+    // console.log("Create Post");
+    // console.log(this.postTitle);
+    // console.log(this.postAddress);
+    // console.log(this.postImage);
+    // console.log(this.postDescription);
+    $http({
+      method: "POST",
+      url: "/sites",
+      data:
+      {
+        title: this.postTitle,
+        description: this.postDescription,
+        address: this.postAddress,
+        image: this.postImage
+      }
+    }).then( (response) => {
+      console.log("Created new post!");
+      controller.getSites();
+      controller.cancelCreatePost();
+    }, (error) => {
+      console.log("Error creating post");
+    })
+  }
+
+  //Function changes the view from the postList page to the postShow page
+  this.selectPost = (selectedSite) => {
+    console.log("Selected Site!");
+    console.log(selectedSite);
+  }
+
+  //Initial call to load all the sites from the database
+  this.getSites();
 
 }])

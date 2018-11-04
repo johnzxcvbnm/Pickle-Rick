@@ -1,1 +1,9 @@
 <h1>POST LIST PAGE</h1>
+<div  class="siteListFlex">
+  <div ng-repeat="site in ctrl.sites">
+    <div class="siteListWrapper" ng-click="ctrl.selectPost(site)">
+      <h2>{{site.title}}</h2>
+      <img src="{{site.image}}" alt="{{site.title}}" title="{{site.title}}" class="siteListPreview"/>
+    </div>
+  </div>
+</div>
