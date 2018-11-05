@@ -16,7 +16,8 @@ app.controller("MainController", ['$http', function($http){
 
   //Sites information
   this.sites = [];
-  this.postDescription = ""
+  this.postDescription = "";
+  this.editPostDescription = "";
   this.selectedPost = {};
 
   //---------Functions---------//
@@ -197,13 +198,17 @@ app.controller("MainController", ['$http', function($http){
   //Function changes the view from the postList page to the postShow page
   this.selectPost = (selectedSite) => {
     this.selectedPost = selectedSite;
+    this.editPostTitle = selectedSite.title;
+    this.editPostAddress = selectedSite.address;
+    this.editPostImage = selectedSite.image;
+    this.editPostDescription = selectedSite.description;
     this.changeInclude("postShow");
     // console.log("Selected Site!");
-    console.log(selectedSite);
+    // console.log(selectedSite);
   }
 
   this.deleteSite = () => {
-    console.log(this.selectedPost._id);
+    // console.log(this.selectedPost._id);
     $http({
       method: "DELETE",
       url: "/sites/" + this.selectedPost._id
@@ -214,6 +219,34 @@ app.controller("MainController", ['$http', function($http){
     }, (error) => {
       console.log("Error deleting post");
     })
+  }
+
+  this.editSite = () => {
+    this.changeInclude("editPost");
+  }
+
+  this.editPost = () => {
+    $http({
+      method: "PUT",
+      url: "/sites/" + this.selectedPost._id,
+      data:
+      {
+        title: this.editPostTitle,
+        address: this.editPostAddress,
+        image: this.editPostImage,
+        description: this.editPostDescription
+      }
+    }).then( (response) => {
+      // console.log("Post Editted");
+      controller.getSites();
+      controller.changeInclude("postList");
+    }, (error) => {
+      console.log("Error editing Post");
+    })
+  }
+
+  this.cancelEditPost = () => {
+    this.changeInclude("postShow");
   }
 
   //Initial call to load all the sites from the database

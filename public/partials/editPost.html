@@ -1,1 +1,27 @@
-<h1>EDIT POST PAGE</h1>
+<div class="login">
+  <h1>Edit Post</h1>
+  <form ng-submit="ctrl.editPost()">
+    <div class="flexWrapper2">
+      <div class="labelWrapper">
+        <label for="title">Title</label>
+        <input type="text" ng-model="ctrl.editPostTitle" required="true"/>
+      </div>
+      <div class="labelWrapper">
+        <label for="address">URL</label>
+        <input type="text" ng-model="ctrl.editPostAddress" required="true"/>
+      </div>
+      <div class="labelWrapper">
+        <label for="image">Image</label>
+        <input type="text" ng-model="ctrl.editPostImage" required="true" />
+      </div>
+    </div>
+    <div>
+      <label for="description">Description</label>
+      <textarea name="description" ng-model="ctrl.editPostDescription">{{ctrl.editPostDescription}}</textarea>
+    </div>
+    <div class="buttonWrapper">
+      <input type="submit" value="Edit Post" class="colorButton">
+      <button ng-click="ctrl.cancelEditPost()" class="colorButton">Cancel</button>
+    </div>
+  </form>
+</div>
