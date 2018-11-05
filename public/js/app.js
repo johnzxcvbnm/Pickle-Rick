@@ -255,6 +255,6 @@ app.controller("MainController", ['$http', function($http){
   }
 
   //Initial call to load all the sites from the database
-  this.getSites();
+  // this.getSites();
 
 }])
