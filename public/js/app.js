@@ -70,7 +70,7 @@ app.controller("MainController", ['$http', function($http){
         username: this.regUsername,
         password: this.regPassword,
         avatar: this.regAvatar,
-        admin: true
+        admin: false
       }
     }).then(function(response){
       console.log("User Created");
