@@ -140,6 +140,15 @@ label {
   font-size: 1em;
 }
 
+.editUserSelector {
+  text-decoration: underline;
+}
+
+.editUserSelector:hover {
+  color: var(--color-04);
+  cursor: pointer;
+}
+
 /****** New Post & Edit Post Section ******/
 textarea {
   width: 100%;
@@ -175,6 +184,15 @@ textarea {
   width: 150px;
   height: 150px;
   margin: auto;
+}
+
+.postListPara {
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+.postListPara p {
+  font-size: 1.2em;
 }
 
 /****** Post Show Section ******/

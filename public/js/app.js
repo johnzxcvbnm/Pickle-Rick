@@ -13,6 +13,7 @@ app.controller("MainController", ['$http', function($http){
   this.user = null;
   this.loggedIn = false;
   this.isAdmin = false;
+  this.toggleEditUserInputs = false;
 
   //Sites information
   this.sites = [];
@@ -43,6 +44,10 @@ app.controller("MainController", ['$http', function($http){
     this.clearRegInputs();
     this.clearPostInputs();
     this.includePath = 'partials/' + path + '.html';
+  }
+
+  this.toggleEditUser = () => {
+    this.toggleEditUserInputs = !this.toggleEditUserInputs;
   }
 
   //Function clears out the input boxes and returns the user to the 'home' section

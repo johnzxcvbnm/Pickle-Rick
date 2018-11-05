@@ -3,9 +3,9 @@
     <h1 class="userPageName">{{ctrl.user.username}}</h1>
     <img src="{{ctrl.user.avatar}}" alt="{{ctrl.user.username}}" title="{{ctrl.user.username}}" class="userPageAvatar"/>
   </div>
-  <h1>Edit User</h1>
-  <p class="editUserText"><i>Note</i>: Editing requires logging back in</p>
-  <form ng-submit="ctrl.editUser()">
+  <h1 ng-click="ctrl.toggleEditUser()" class="editUserSelector">Edit User</h1>
+  <p class="editUserText" ng-if="ctrl.toggleEditUserInputs"><i>Note</i>: Editing requires logging back in</p>
+  <form ng-submit="ctrl.editUser()" ng-if="ctrl.toggleEditUserInputs">
     <div class="flexWrapper">
       <div class="labelWrapper">
         <label for="username">Username</label>
@@ -18,7 +18,7 @@
     </div>
     <div class="buttonWrapper">
       <input type="submit" value="Edit User" class="colorButton">
-      <button ng-click="ctrl.cancelCreateUser()" class="colorButton">Cancel</button>
+      <button ng-click="ctrl.toggleEditUser()" class="colorButton">Cancel</button>
     </div>
   </form>
 </div>
