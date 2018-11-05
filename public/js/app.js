@@ -176,11 +176,6 @@ app.controller("MainController", ['$http', function($http){
 
   //Function is used to create a new post
   this.createPost = () => {
-    // console.log("Create Post");
-    // console.log(this.postTitle);
-    // console.log(this.postAddress);
-    // console.log(this.postImage);
-    // console.log(this.postDescription);
     $http({
       method: "POST",
       url: "/sites",
@@ -252,6 +247,49 @@ app.controller("MainController", ['$http', function($http){
 
   this.cancelEditPost = () => {
     this.changeInclude("postShow");
+  }
+
+  this.seedUser = () => {
+    console.log("Seeding User");
+    $http({
+      method: "POST",
+      url: "/users",
+      data: {
+        username: "zzt",
+        password: "123",
+        avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUZaa8EZtWOUQhXMOF7GHo00FXFHUJy-p-_SGreS2Or0BiOf_f",
+        admin: true
+      }
+    }).then(function(response){
+      console.log("User Seeded");
+      // console.log(response);
+    }, function(){
+      console.log("Error Creating User");
+    })
+  }
+
+  this.seedPost = () => {
+    console.log("Seeding Post");
+    $http({
+      method: "POST",
+      url: "/sites",
+      data:
+      {
+        title: "Test Post",
+        description: "Initial Post",
+        address: "http://www.google.com",
+        image: "https://beta-static.photobucket.com/images/vv181/johnzxcvbnm/0/6a73a449-4712-467f-882b-a2271e4eb6b1-original.png?width=1920&height=1080&fit=bounds"
+      }
+    }).then( (response) => {
+      console.log("Post Seeded");
+    }, (error) => {
+      console.log("Error creating post");
+    })
+  }
+
+  this.seedData = () => {
+    this.seedUser();
+    this.seedPost();
   }
 
   //Initial call to load all the sites from the database
