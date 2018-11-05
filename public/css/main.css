@@ -17,6 +17,7 @@
 body {
   background: var(--color-05);
   width: 100%;
+  min-width: 550px;
   font-family: 'Poor Story', sans-serif;
   margin: 0;
   padding: 0;
@@ -36,10 +37,12 @@ nav, footer {
   padding: 10px 20px;
   border-radius: 10px;
   box-sizing: border-box;
-
   margin: 20px 0;
   display: flex;
   justify-content: space-between;
+  -webkit-box-shadow: 5px 5px 20px 5px rgba(117,117,117,1);
+  -moz-box-shadow: 5px 5px 20px 5px rgba(117,117,117,1);
+  box-shadow: 5px 5px 20px 5px rgba(117,117,117,1);
 }
 
 .siteTitle {
@@ -109,6 +112,10 @@ footer {
   border-radius: 10px;
   margin: 20px 0;
   box-sizing: border-box;
+
+  -webkit-box-shadow: 5px 5px 20px 5px rgba(117,117,117,1);
+  -moz-box-shadow: 5px 5px 20px 5px rgba(117,117,117,1);
+  box-shadow: 5px 5px 20px 5px rgba(117,117,117,1);
 }
 
 /****** Register & Login Section ******/
