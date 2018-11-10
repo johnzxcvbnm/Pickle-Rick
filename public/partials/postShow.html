@@ -1,14 +1,25 @@
 <div class="postShowFlex">
   <div class="postShowLeft">
-    <a href="{{ctrl.selectedPost.image}}"><img src="{{ctrl.selectedPost.image}}" alt="{{ctrl.selectedPost.title}}" title="{{ctrl.selectedPost.title}}" /></a>
+    <a href="{{ctrl.selectedPost.image}}" target="_blank"><img src="{{ctrl.selectedPost.image}}" alt="{{ctrl.selectedPost.title}}" title="{{ctrl.selectedPost.title}}" /></a>
   </div>
   <div class="postShowRight">
-    <h1><a href="{{ctrl.selectedPost.address}}">{{ctrl.selectedPost.title}}</a></h1>
+    <h1><a href="{{ctrl.selectedPost.address}}" target="_blank">{{ctrl.selectedPost.title}}</a></h1>
+    <h3><a href="{{ctrl.selectedPost.readme}}" target="_blank">Readme</a></h3>
     <p>{{ctrl.selectedPost.description}}</p>
   </div>
 </div>
 <div class="buttonBar">
-  <!-- <button ng-click="ctrl.openSubmit()" ng-if="ctrl.loggedIn" class="colorButton">Submit</button> -->
+  <button ng-click="ctrl.openComment()" ng-if="ctrl.loggedIn" class="colorButton">Comment</button>
   <button ng-click="ctrl.editSite()" ng-if="ctrl.isAdmin" class="colorButton">Edit</button>
   <button ng-click="ctrl.deleteSite()" ng-if="ctrl.isAdmin" class="colorButton">Delete</button>
+</div>
+<div class="commentBox" id="commentBox" ng-if="ctrl.toggleCommentBox">
+  <div>
+    <label for="comment">Add Comment</label>
+    <textarea name="comment" ng-model="ctrl.postComment"></textarea>
+  </div>
+  <div class="buttonBar">
+    <button ng-click="ctrl.submitComment()" class="colorButton">Add Comment</button>
+    <button ng-click="ctrl.openComment()" class="colorButton">Cancel</button>
+  </div>
 </div>

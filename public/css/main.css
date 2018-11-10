@@ -144,7 +144,8 @@ label {
 }
 
 .labelWrapper input {
-  width: 300px;
+  width: 400px;
+  /* width: 40%; */
   padding: 5px;
 }
 
@@ -275,6 +276,7 @@ textarea {
 }
 
 .buttonBar {
+  width: 100%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;

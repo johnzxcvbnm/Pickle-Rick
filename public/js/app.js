@@ -20,6 +20,8 @@ app.controller("MainController", ['$http', function($http){
   this.postDescription = "";
   this.editPostDescription = "";
   this.selectedPost = {};
+  this.toggleCommentBox = false;
+  this.postComment = "";
 
   //---------Functions---------//
 
@@ -29,6 +31,8 @@ app.controller("MainController", ['$http', function($http){
     this.postAddress = "";
     this.postImage = "";
     this.postDescription = "";
+    this.postReadme = "";
+    this.postComment = "";
   }
 
   //Function clears out the input boxes
@@ -184,10 +188,12 @@ app.controller("MainController", ['$http', function($http){
         title: this.postTitle,
         description: this.postDescription,
         address: this.postAddress,
-        image: this.postImage
+        image: this.postImage,
+        readme: this.postReadme
       }
     }).then( (response) => {
       // console.log("Created new post!");
+      // console.log(response);
       controller.getSites();
       controller.cancelCreatePost();
     }, (error) => {
@@ -202,6 +208,7 @@ app.controller("MainController", ['$http', function($http){
     this.editPostAddress = selectedSite.address;
     this.editPostImage = selectedSite.image;
     this.editPostDescription = selectedSite.description;
+    this.editPostReadme = selectedSite.readme;
     this.changeInclude("postShow");
     // console.log("Selected Site!");
     // console.log(selectedSite);
@@ -234,7 +241,8 @@ app.controller("MainController", ['$http', function($http){
         title: this.editPostTitle,
         address: this.editPostAddress,
         image: this.editPostImage,
-        description: this.editPostDescription
+        description: this.editPostDescription,
+        readme: this.editPostReadme
       }
     }).then( (response) => {
       // console.log("Post Editted");
@@ -287,9 +295,15 @@ app.controller("MainController", ['$http', function($http){
     })
   }
 
+  //Adds basic seed data to prevent possible errors
   this.seedData = () => {
     this.seedUser();
     this.seedPost();
+  }
+
+  //Function toggles weather the add comment box is open or not
+  this.openComment = () => {
+    this.toggleCommentBox = !this.toggleCommentBox;
   }
 
   //Initial call to load all the sites from the database

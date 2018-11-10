@@ -47,7 +47,7 @@ Javascript, Node.js, MongoDB, Mongoose, Express, EJS/CSS, Pure Dedication
 <h2>Links</h2>
 <ul>
 <li><a href="#">CSS2GO</a></li>
-<li><a href="http://kusching.com/#home">Portfolio</a></li>
-<li><a href="https://github.com/johnzxcvbnm">GitHub</a></li>
-<li><a href="https://www.linkedin.com/in/kusching/">LinkedIn</a></li>
+<li><a href="http://kusching.com/#home" target="_blank">Portfolio</a></li>
+<li><a href="https://github.com/johnzxcvbnm" target="_blank">GitHub</a></li>
+<li><a href="https://www.linkedin.com/in/kusching/" target="_blank">LinkedIn</a></li>
 </ul>
