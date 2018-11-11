@@ -1,25 +1,38 @@
 <div class="postShowFlex">
+  <!-- Image Rendered on the left side -->
   <div class="postShowLeft">
     <a href="{{ctrl.selectedPost.image}}" target="_blank"><img src="{{ctrl.selectedPost.image}}" alt="{{ctrl.selectedPost.title}}" title="{{ctrl.selectedPost.title}}" /></a>
   </div>
+  <!-- Text and links rendered on the right side -->
   <div class="postShowRight">
     <h1><a href="{{ctrl.selectedPost.address}}" target="_blank">{{ctrl.selectedPost.title}}</a></h1>
     <h3><a href="{{ctrl.selectedPost.readme}}" target="_blank">Readme</a></h3>
     <p>{{ctrl.selectedPost.description}}</p>
   </div>
 </div>
+<!-- Button bar for admins and adding comments -->
 <div class="buttonBar">
-  <button ng-click="ctrl.openComment()" ng-if="ctrl.loggedIn" class="colorButton">Comment</button>
+  <button ng-click="ctrl.openComment()" class="colorButton">Comments ({{ctrl.selectedPost.comments.length}})</button>
+  <button ng-click="ctrl.openSubmitComment()" class="colorButton">Add Comment</button>
   <button ng-click="ctrl.editSite()" ng-if="ctrl.isAdmin" class="colorButton">Edit</button>
   <button ng-click="ctrl.deleteSite()" ng-if="ctrl.isAdmin" class="colorButton">Delete</button>
 </div>
+<!-- Toggled Comments -->
 <div class="commentBox" id="commentBox" ng-if="ctrl.toggleCommentBox">
-  <div>
-    <label for="comment">Add Comment</label>
-    <textarea name="comment" ng-model="ctrl.postComment"></textarea>
+  <!-- Comment Section to add comments -->
+  <div ng-if="ctrl.toggleSubmitCommentBox">
+    <div>
+      <label for="comment">Add Comment</label>
+      <!-- <hr /> -->
+      <textarea name="comment" ng-model="ctrl.postComment"></textarea>
+    </div>
+    <div class="buttonBar">
+      <button ng-click="ctrl.submitComment()" class="colorButton">Submit</button>
+      <button ng-click="ctrl.openSubmitComment()" class="colorButton">Cancel</button>
+    </div>
   </div>
-  <div class="buttonBar">
-    <button ng-click="ctrl.submitComment()" class="colorButton">Add Comment</button>
-    <button ng-click="ctrl.openComment()" class="colorButton">Cancel</button>
+  <!-- Displayed Comments -->
+  <div class="commentList">
+    <h1>Comments</h1>
   </div>
 </div>

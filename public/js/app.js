@@ -21,6 +21,7 @@ app.controller("MainController", ['$http', function($http){
   this.editPostDescription = "";
   this.selectedPost = {};
   this.toggleCommentBox = false;
+  this.toggleSubmitCommentBox = false;
   this.postComment = "";
 
   //---------Functions---------//
@@ -304,6 +305,26 @@ app.controller("MainController", ['$http', function($http){
   //Function toggles weather the add comment box is open or not
   this.openComment = () => {
     this.toggleCommentBox = !this.toggleCommentBox;
+  }
+
+  this.openSubmitComment = () => {
+    if(this.toggleCommentBox){
+      this.toggleSubmitCommentBox = !this.toggleSubmitCommentBox;
+    }
+  }
+
+  this.submitComment = () => {
+    newComment =
+    {
+      userId: this.user._id,
+      userAvatar: this.user.avatar,
+      username: this.user.username,
+      comment: this.postComment
+    }
+    // console.log(newComment);
+    // $http({
+    //   method: ""
+    // })
   }
 
   //Initial call to load all the sites from the database
