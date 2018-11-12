@@ -13,7 +13,7 @@
 <!-- Button bar for admins and adding comments -->
 <div class="buttonBar">
   <button ng-click="ctrl.openComment()" class="colorButton">Comments ({{ctrl.selectedPost.comments.length}})</button>
-  <button ng-click="ctrl.openSubmitComment()" class="colorButton">Add Comment</button>
+  <button ng-click="ctrl.openSubmitComment()" ng-if="ctrl.loggedIn" class="colorButton">Add Comment</button>
   <button ng-click="ctrl.editSite()" ng-if="ctrl.isAdmin" class="colorButton">Edit</button>
   <button ng-click="ctrl.deleteSite()" ng-if="ctrl.isAdmin" class="colorButton">Delete</button>
 </div>
@@ -34,5 +34,11 @@
   <!-- Displayed Comments -->
   <div class="commentList">
     <h1>Comments</h1>
+    <div class="commentWrapper" ng-repeat="comment in ctrl.selectedPost.comments">
+      <p>Comment</p>
+      <p>Created by: {{comment.username}}</p>
+      <p>{{comment.comment}}</p>
+      <hr />
+    </div>
   </div>
 </div>

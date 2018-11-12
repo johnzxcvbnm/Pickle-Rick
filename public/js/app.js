@@ -48,6 +48,8 @@ app.controller("MainController", ['$http', function($http){
   this.changeInclude = (path) => {
     this.clearRegInputs();
     this.clearPostInputs();
+    this.toggleCommentBox = false;
+    this.toggleSubmitCommentBox = false;
     this.includePath = 'partials/' + path + '.html';
   }
 
@@ -243,7 +245,8 @@ app.controller("MainController", ['$http', function($http){
         address: this.editPostAddress,
         image: this.editPostImage,
         description: this.editPostDescription,
-        readme: this.editPostReadme
+        readme: this.editPostReadme,
+        comments: this.selectedPost.comments
       }
     }).then( (response) => {
       // console.log("Post Editted");
@@ -309,11 +312,13 @@ app.controller("MainController", ['$http', function($http){
 
   this.openSubmitComment = () => {
     if(this.toggleCommentBox){
+      this.postComment = "";
       this.toggleSubmitCommentBox = !this.toggleSubmitCommentBox;
     }
   }
 
   this.submitComment = () => {
+    //Pull data from the comment and create a new comment object
     newComment =
     {
       userId: this.user._id,
@@ -321,10 +326,32 @@ app.controller("MainController", ['$http', function($http){
       username: this.user.username,
       comment: this.postComment
     }
+
+    this.selectedPost.comments.push(newComment);
     // console.log(newComment);
-    // $http({
-    //   method: ""
-    // })
+    $http({
+      method: "PUT",
+      url: "/sites/" + this.selectedPost._id,
+      data:
+      {
+        title: this.selectedPost.title,
+        description: this.selectedPost.description,
+        address: this.selectedPost.address,
+        image: this.selectedPost.image,
+        readme: this.selectedPost.readme,
+        comments: this.selectedPost.comments
+      }
+    }).then( (response) => {
+      //Update selected post
+      //Refresh page?
+      //Clear Comment Box
+      console.log("Comment Added");
+      // controller.changeInclude("postList");
+      controller.openSubmitComment();
+
+    }, (error) => {
+      console.log("Error adding comment");
+    })
   }
 
   //Initial call to load all the sites from the database
