@@ -23,7 +23,6 @@
   <div ng-if="ctrl.toggleSubmitCommentBox">
     <div>
       <label for="comment">Add Comment</label>
-      <!-- <hr /> -->
       <textarea name="comment" ng-model="ctrl.postComment"></textarea>
     </div>
     <div class="buttonBar">
@@ -34,11 +33,16 @@
   <!-- Displayed Comments -->
   <div class="commentList">
     <h1>Comments</h1>
-    <div class="commentWrapper" ng-repeat="comment in ctrl.selectedPost.comments">
+    <div class="singleComment" ng-repeat="comment in ctrl.selectedPost.comments">
       <p>Comment</p>
-      <p>Created by: {{comment.username}}</p>
+      <image src="{{comment.userAvatar}}" title="{{comment.username}}" alt="{{comment.username}}" class="commentAvatar" />
+      <h3>{{comment.username}}</h3>
       <p>{{comment.comment}}</p>
-      <hr />
+      <div class="buttonBar" ng-if="(comment.userId == ctrl.user._id) || (ctrl.isAdmin)">
+        <button class="colorButton">Edit</button>
+        <button class="colorButton">Delete</button>
+      </div>
+      <!-- <hr /> -->
     </div>
   </div>
 </div>
