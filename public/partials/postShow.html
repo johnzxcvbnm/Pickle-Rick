@@ -39,8 +39,8 @@
       <h3>{{comment.username}}</h3>
       <p>{{comment.comment}}</p>
       <div class="buttonBar" ng-if="(comment.userId == ctrl.user._id) || (ctrl.isAdmin)">
-        <button class="colorButton">Edit</button>
-        <button class="colorButton">Delete</button>
+        <button ng-click="ctrl.editComment($index)" class="colorButton">Edit</button>
+        <button ng-click="ctrl.deleteComment($index)" class="colorButton">Delete</button>
       </div>
       <!-- <hr /> -->
     </div>

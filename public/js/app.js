@@ -53,6 +53,7 @@ app.controller("MainController", ['$http', function($http){
     this.includePath = 'partials/' + path + '.html';
   }
 
+  //Function is used to toggle the edit fields on the user show page
   this.toggleEditUser = () => {
     this.toggleEditUserInputs = !this.toggleEditUserInputs;
   }
@@ -141,6 +142,10 @@ app.controller("MainController", ['$http', function($http){
     })
   }
 
+  //Function is used to edit user information (username and avatar).
+  //If the user does not provide a input for their avatar, they are given a default one
+  //User information is then updated in the database
+  //The user is then logged off to ensure that the data refreshes correctly
   this.editUser = () => {
     if(this.editAvatar === ""){
       this.editAvatar = "https://publicdomainvectors.org/tn_img/1466989605.png";
@@ -205,6 +210,8 @@ app.controller("MainController", ['$http', function($http){
   }
 
   //Function changes the view from the postList page to the postShow page
+  //Function is used to select a post from the postList page
+  //Function then preloads the edit post fields from the selected post
   this.selectPost = (selectedSite) => {
     this.selectedPost = selectedSite;
     this.editPostTitle = selectedSite.title;
@@ -217,6 +224,8 @@ app.controller("MainController", ['$http', function($http){
     // console.log(selectedSite);
   }
 
+  //Function is used to delete a site from the database
+  //Only users with ADMIN can delete posts
   this.deleteSite = () => {
     // console.log(this.selectedPost._id);
     $http({
@@ -231,10 +240,13 @@ app.controller("MainController", ['$http', function($http){
     })
   }
 
+  //Function is used to switch the page from the postShow page to the postEdit page
   this.editSite = () => {
     this.changeInclude("editPost");
   }
 
+  //Function is used to update a site in the backend
+  //Function then redirects user to the postShow page to reload everything properly
   this.editPost = () => {
     $http({
       method: "PUT",
@@ -257,10 +269,12 @@ app.controller("MainController", ['$http', function($http){
     })
   }
 
+  //Function is used to cancel editing a post and redirects the user back to the postShow page
   this.cancelEditPost = () => {
     this.changeInclude("postShow");
   }
 
+  //Function is used to seed a user into the database
   this.seedUser = () => {
     console.log("Seeding User");
     $http({
@@ -280,6 +294,7 @@ app.controller("MainController", ['$http', function($http){
     })
   }
 
+  //Function is used to seed a post into the database
   this.seedPost = () => {
     console.log("Seeding Post");
     $http({
@@ -305,11 +320,12 @@ app.controller("MainController", ['$http', function($http){
     this.seedPost();
   }
 
-  //Function toggles weather the add comment box is open or not
+  //Function toggles whether comments are displayed or not
   this.openComment = () => {
     this.toggleCommentBox = !this.toggleCommentBox;
   }
 
+  //Function toggles the add comment fields
   this.openSubmitComment = () => {
     if(this.toggleCommentBox){
       this.postComment = "";
@@ -317,6 +333,9 @@ app.controller("MainController", ['$http', function($http){
     }
   }
 
+  //Function is used to add a comment to the selected post
+  //Function creates a new comment object then updates it in the selectedPost
+  //SelectedPost is then updated in the backend
   this.submitComment = () => {
     //Pull data from the comment and create a new comment object
     newComment =
@@ -342,15 +361,41 @@ app.controller("MainController", ['$http', function($http){
         comments: this.selectedPost.comments
       }
     }).then( (response) => {
-      //Update selected post
-      //Refresh page?
-      //Clear Comment Box
-      console.log("Comment Added");
-      // controller.changeInclude("postList");
+      // console.log("Comment Added");
+      controller.postComment = "";
       controller.openSubmitComment();
-
     }, (error) => {
       console.log("Error adding comment");
+    })
+  }
+
+  //Function is used to update a comment
+  this.editComment = (index) => {
+    console.log("Editing Comment at " + index);
+  }
+
+  //Function is used to delete a comment from a post
+  //Only the users who own the comment or an admin can delete a comment
+  //Function updates selectedPost which is then updated in the back end
+  this.deleteComment = (index) => {
+    // console.log("Deleting Comment at " + index);
+    this.selectedPost.comments.splice(index, 1);
+    $http({
+      method: "PUT",
+      url: "/sites/" + this.selectedPost._id,
+      data:
+      {
+        title: this.selectedPost.title,
+        description: this.selectedPost.description,
+        address: this.selectedPost.address,
+        image: this.selectedPost.image,
+        readme: this.selectedPost.readme,
+        comments: this.selectedPost.comments
+      }
+    }).then( (response) => {
+      // console.log("Comment Deleted");
+    }, (error) => {
+      console.log("Error deleting comment");
     })
   }
 
