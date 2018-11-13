@@ -136,6 +136,7 @@ app.controller("MainController", ['$http', function($http){
       // console.log(response);
       controller.loggedIn = false;
       controller.isAdmin = false;
+      controller.user = null;
       controller.changeInclude('home');
     }, (error) => {
       console.log("Failed to log user out");

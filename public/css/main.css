@@ -176,8 +176,9 @@ label {
 }
 
 .userPageAvatar {
-  width: 300px;
+  width: 200px;
   height: 300px;
+  border-radius: 100px;
   display: flex;
   margin: auto;
 }
@@ -296,4 +297,31 @@ textarea {
 .colorButton:hover {
   background: var(--color-01);
   color: var(--color-03);
+}
+
+/****** Comment Section ******/
+
+.commentHeader {
+  text-align: center;
+}
+
+.singleComment {
+  margin: 30px 10px;
+  border: 1px solid var(--color-01);
+  border-radius: 10px;
+  display: flex;
+}
+
+.commentAvatar {
+  width: 200px;
+  height: 300px;
+  border-radius: 100px;
+  margin: 20px;
+}
+
+.postShowLeft2 {
+  width: 25%;
+  margin: 15px;
+  padding: 15px;
+  
 }

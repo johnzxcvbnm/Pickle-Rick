@@ -32,15 +32,18 @@
   </div>
   <!-- Displayed Comments -->
   <div class="commentList">
-    <h1>Comments</h1>
+    <h1 class="commentHeader">Comments</h1>
     <div class="singleComment" ng-repeat="comment in ctrl.selectedPost.comments">
-      <p>Comment</p>
-      <image src="{{comment.userAvatar}}" title="{{comment.username}}" alt="{{comment.username}}" class="commentAvatar" />
-      <h3>{{comment.username}}</h3>
-      <p>{{comment.comment}}</p>
-      <div class="buttonBar" ng-if="(comment.userId == ctrl.user._id) || (ctrl.isAdmin)">
-        <button ng-click="ctrl.editComment($index)" class="colorButton">Edit</button>
-        <button ng-click="ctrl.deleteComment($index)" class="colorButton">Delete</button>
+      <div class="postShowLeft2">
+        <image src="{{comment.userAvatar}}" title="{{comment.username}}" alt="{{comment.username}}" class="commentAvatar" />
+      </div>
+      <div class="postShowRight">
+        <h1>{{comment.username}}</h1>
+        <p>{{comment.comment}}</p>
+        <div class="buttonBar2" ng-if="(comment.userId == ctrl.user._id) || (ctrl.isAdmin)">
+          <button ng-click="ctrl.editComment($index)" class="colorButton">Edit</button>
+          <button ng-click="ctrl.deleteComment($index)" class="colorButton">Delete</button>
+        </div>
       </div>
       <!-- <hr /> -->
     </div>
