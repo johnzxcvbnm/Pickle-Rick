@@ -26,19 +26,23 @@ Javascript, Node.js, MongoDB, Mongoose, Express, EJS/CSS, AngularJS, Pure Dedica
 <hr id="wire">
 <h2>Wire Frames</h2>
 
-Overall - https://wireframe.cc/TlbsuG
-Nav Bar - https://wireframe.cc/U2DNVc
-Footer - N/A
-Home - N/A
-About - N/A
-Practice (Post List) - https://wireframe.cc/p50T1N
-Register - N/A
-Login - N/A
-New Post - N/A
-User Page - https://wireframe.cc/O1OXU9
-Post Show - https://wireframe.cc/AsQQ1O
-Redesign - https://wireframe.cc/9xx3c1
+<h3>General Design</h3>
+<a href="https://wireframe.cc/TlbsuG"><img src="./public/img/Wireframes_General_Design.png" title="General Design" alt="General Design" /></a>
 
+<h3>Navigation Bar</h3>
+<a href="https://wireframe.cc/U2DNVc"><img title="Navigation Bar" alt="Navigation Bar" src="./public/img/Wireframes_Nav_Bar.png" /></a>
+
+<h3>Practice Section</h3>
+<a href="https://wireframe.cc/p50T1N"><img title="Practice Section" alt="Practice Section" src="./public/img/Wireframes_Post_List.png" /></a>
+
+<h3>Post Show</h3>
+<a href="https://wireframe.cc/AsQQ1O"><img title="Post Show" alt="Post Show" src="./public/img/Wireframes_Post_Show.png" /></a>
+
+<h3>User Page</h3>
+<a href="https://wireframe.cc/O1OXU9"><img title="User Page" alt="User Page" src="./public/img/Wireframes_User_Page.png" /></a>
+
+<!-- <h3>Redesign</h3>
+https://wireframe.cc/9xx3c1 -->
 
 
 <hr id="user">
