@@ -1,4 +1,4 @@
-# <a href="#">CSS2GO</a>
+# <a href="https://css2go.herokuapp.com/">CSS2GO</a>
 A project by John Kusching
 
 <h3>Index</h3>
@@ -16,7 +16,7 @@ A project by John Kusching
 <hr id="summary">
 <h3>Summary</h3>
 
-<p></p>
+<p>CSS2GO was built to help me practice my CSS.  The idea is to create a place to host all my smaller practice sites.  Originally I was going to use other live sites (sites that are not mine) to link to and create mock ups.  I was also going to allow users to submit their own links to the mock up.  I discarded this idea in favor of creating everything myself.  Create several small projects and one full mock up (every now and then) as a combination of the previous smaller projects.  The final version now allows everyday users to view a preview of the mock up, the readme/code as well as a live link.  Users can also post their thoughts or comments on the mock ups.</p>
 
 
 <hr id="built">
@@ -25,6 +25,21 @@ Javascript, Node.js, MongoDB, Mongoose, Express, EJS/CSS, AngularJS, Pure Dedica
 
 <hr id="wire">
 <h2>Wire Frames</h2>
+
+Overall - https://wireframe.cc/TlbsuG
+Nav Bar - https://wireframe.cc/U2DNVc
+Footer - N/A
+Home - N/A
+About - N/A
+Practice (Post List) - https://wireframe.cc/p50T1N
+Register - N/A
+Login - N/A
+New Post - N/A
+User Page - https://wireframe.cc/O1OXU9
+Post Show - https://wireframe.cc/AsQQ1O
+Redesign - https://wireframe.cc/9xx3c1
+
+
 
 <hr id="user">
 <h2>User Stories</h2>
@@ -70,8 +85,8 @@ Javascript, Node.js, MongoDB, Mongoose, Express, EJS/CSS, AngularJS, Pure Dedica
 <hr id="links">
 <h2>Links</h2>
 <ul>
-<li><a href="#">CSS2GO</a></li>
-<li><a href="http://kusching.com/#home" target="_blank">Portfolio</a></li>
-<li><a href="https://github.com/johnzxcvbnm" target="_blank">GitHub</a></li>
-<li><a href="https://www.linkedin.com/in/kusching/" target="_blank">LinkedIn</a></li>
+<li><a href="https://css2go.herokuapp.com/">CSS2GO</a></li>
+<li><a href="http://kusching.com/#home">Portfolio</a></li>
+<li><a href="https://github.com/johnzxcvbnm">GitHub</a></li>
+<li><a href="https://www.linkedin.com/in/kusching/">LinkedIn</a></li>
 </ul>
