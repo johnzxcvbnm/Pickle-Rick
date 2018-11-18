@@ -58,6 +58,16 @@ nav h5, footer h5 {
   margin: 20px 0;
 }
 
+nav h5:hover {
+  color: var(--color-01);
+  cursor: pointer;
+}
+
+nav h2:hover {
+  color: var(--color-01);
+  cursor: pointer;
+}
+
 /****** Footer Section ******/
 
 footer {
