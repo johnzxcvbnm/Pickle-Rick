@@ -312,6 +312,7 @@ textarea {
 .colorButton:hover {
   background: var(--color-01);
   color: var(--color-03);
+  cursor: pointer;
 }
 
 /****** Comment Section ******/
