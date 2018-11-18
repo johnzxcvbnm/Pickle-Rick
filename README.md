@@ -8,7 +8,7 @@ A project by John Kusching
 <li><a href="#built">Built With</a></li>
 <li><a href="#wire">Wire Frames</a></li>
 <li><a href="#user">User Stories</a></li>
-<li><a href="#challenges">Challenges</a></li>
+<!-- <li><a href="#challenges">Challenges</a></li> -->
 <li><a href="#future">Future Additions</a></li>
 <li><a href="#links">Links</a></li>
 </ol>
@@ -72,18 +72,24 @@ https://wireframe.cc/9xx3c1 -->
 </ul>
 </ul>
 
-<hr id="challenges">
+<!-- <hr id="challenges">
 <h2>Challenges</h2>
 
-<p></p>
+<p>One of the challenges of building </p> -->
 
 
 <hr id="future">
 <h2>Future Additions</h2>
 
-<p>(Completed)</p>
-
-<!-- <p>Create a site to add 'posts'</p> -->
+<ul>
+<li>(Completed) Launch basic version of the site.  Allow new user registration and user log in.  Allow user to edit username and avatar.  Allow admins to create, edit and delete posts.</li>
+<li>(Discarded) Let users post their own submissions.</li>
+<li>(Completed) Update site schema to allow a direct link to the sites readme.  Change site schema to allow comments instead of submissions.</li>
+<li>(Completed) Allow users to comment on sites.  Allow users to delete their own comments.  Allow admins to delete any comment.</li>
+<li>Allow users to edit their comments.  Allow admins to edit any comments.</li>
+<li>Redesign basic layout of the site.  Move the nav bar to the side for large screen and add icons.</li>
+<li>Allow users to see a list of their comments on their user page</li>
+</ul>
 
 
 <hr id="links">
