@@ -239,6 +239,11 @@ textarea {
   color: var(--color-01);
 }
 
+.siteListWrapper:hover {
+  color: white;
+  cursor: pointer;
+}
+
 .siteListPreview {
   width: 150px;
   height: 150px;
